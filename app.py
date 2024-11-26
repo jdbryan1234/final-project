@@ -86,7 +86,7 @@ class ClientApp(FlaskView):
         dataObj={}
         dataObj["enable system"] = enable
         jsondata = json.dumps(dataObj)
-        self.mqttc.publish(mqtt_topic, jsondata)
+        self.mqttc.publish(mqtt_topic, jsondata, qos= 2)
         print ("Controller: ", enable)
 
     def _queryDB(self):
